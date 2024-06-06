@@ -31,7 +31,7 @@ export default function App() {
                 </Link>
             </View>
             <View>
-                <Image source={slide} style={{ borderBottomRightRadius: 100, borderBottomLeftRadius: 100 }} />
+                <Image source={slide} style={{ borderBottomRightRadius: 200, borderBottomLeftRadius: 200 }} />
             </View>
             <View>
                 <Text style={{ fontWeight: 500, fontSize: 26, marginLeft: 25, marginTop: 20 }}>Best travel destinations in</Text>
