@@ -28,12 +28,14 @@ const App = () => {
 
             </View>
 
-            <View style={{ paddingTop: 15, paddingLeft: 30 }}>
+            <View style={{ paddingTop: 15, paddingLeft: 30, }}>
                 <Text style={{ fontWeight: 400 }}>Personal Info</Text>
                 <Link href={"MyAddress"}>
-                    <Image source={location} />
-                    <Text style={{ fontSize: 24, fontWeight: 500}}>My Address</Text>
-                    <Image source={arrow} style={{tintColor: "red"}} />
+                    <View style={{ flexDirection: "row", width: 320, paddingVertical: 10 }}>
+                        <Image source={location} style={{ marginTop:5 }} />
+                        <Text style={{ fontSize: 24, fontWeight: 500, flexGrow: 0, marginLeft: 20}}>My Address</Text>
+                        <Image source={arrow} style={{ tintColor: "#ababab",marginLeft:100 , marginTop:5}} />
+                    </View>
                 </Link>
             </View>
 
