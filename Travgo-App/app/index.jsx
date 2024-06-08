@@ -6,7 +6,6 @@ const user = require("@/assets/images/user.png")
 const slide = require("@/assets/images/slide.png")
 const forward = require("@/assets/images/right-arrow.png")
 
-
 export default function App() {
     return (
         <ScrollView>
@@ -23,7 +22,7 @@ export default function App() {
                 </View>
                 <View style={{ alignSelf: "center" }}>
                     <Pressable>
-                        <Image source={darkMode} style={{ tintColor: "white",marginBottom:5,marginLeft: 190, height: 30, width: 30, marginRight: 20 }} />
+                        <Image source={darkMode} style={{ tintColor: "white", marginBottom: 5, marginLeft: 190, height: 30, width: 30, marginRight: 20 }} />
                     </Pressable>
                 </View>
                 <Link href={"Settings"}>
@@ -31,8 +30,9 @@ export default function App() {
                 </Link>
             </View>
             <View>
-                <Image source={slide} style={{borderBottomRightRadius: 100, borderBottomLeftRadius: 100 }} />
+                <Image source={slide} style={{ borderBottomRightRadius: 200, borderBottomLeftRadius: 200 }} />
             </View>
+
             <View>
                 <Text style={{ fontWeight: 500, fontSize: 26, marginLeft: 25, marginTop: 20 }}>Best travel destinations in</Text>
                 <Text style={{ fontWeight: 500, fontSize: 26, marginLeft: 125 }}>the world</Text>
