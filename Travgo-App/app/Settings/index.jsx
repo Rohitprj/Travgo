@@ -12,6 +12,7 @@ const Theme = require("@/assets/images/nightMode.png")
 import { Feather } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import ToggleSwitch from 'toggle-switch-react-native'
 
 const App = () => {
     return (
@@ -129,13 +130,24 @@ const App = () => {
                 <Link href={"MyAddress"}>
                     <View style={{ flexDirection: "row", width: 320, alignContent: "center", paddingVertical: 15 }}>
                         <Image source={Theme} style={{ marginTop: 5 }} />
-                        <Text style={{ fontSize: 24, fontWeight: 500, flexGrow: 0, marginLeft: 20 }}>Dark Mode</Text>
-                        <Image source={arrow} style={{ tintColor: "#ababab", marginLeft: 110, alignSelf: "center" }} />
+                        <Text style={{ fontSize: 24, fontWeight: 500, flexGrow: 0, marginLeft: 23, marginRight: 100 }}>Dark Mode</Text>
+                        <ToggleSwitch
+                            isOn={false}
+                            onColor="green"
+                            offColor="#ababab"
+                            labelStyle={{ color: "black", fontWeight: "900" }}
+                            size="small"
+                            onToggle={isOn => console.log("changed to : ", isOn)}
+                        />
                     </View>
                 </Link>
-                <Pressable>
-                    
-                </Pressable>
+                <View style={{ paddingTop: 30, paddingBottom: 60 }}>
+                    <Pressable
+                        style={{ borderRadius: 80, borderWidth: 2, borderColor: "skyblue", height: 80, width: 300 }}
+                    >
+                        <Text style={{ color: "skyblue", alignSelf: "center", justifyContent: "center", fontSize: 30, marginTop: 15 }}>Log Out</Text>
+                    </Pressable>
+                </View>
             </View>
         </ScrollView>
     )
