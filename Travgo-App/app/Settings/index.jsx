@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Image, Pressable } from 'react-native'
+import { View, Text, ScrollView, Image, Pressable, Switch } from 'react-native'
 import React from 'react'
 import { Link } from 'expo-router'
 const profile = require("@/assets/images/boy.png")
@@ -15,6 +15,8 @@ import { MaterialIcons } from '@expo/vector-icons';
 import ToggleSwitch from 'toggle-switch-react-native'
 
 const App = () => {
+    const [isEnabled, setIsEnabled] = React.useState(false);
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
     return (
         <ScrollView>
             <View style={{ flexDirection: "row", padding: 15, paddingLeft: 30 }}>
@@ -131,14 +133,27 @@ const App = () => {
                     <View style={{ flexDirection: "row", width: 320, alignContent: "center", paddingVertical: 15 }}>
                         <Image source={Theme} style={{ marginTop: 5 }} />
                         <Text style={{ fontSize: 24, fontWeight: 500, flexGrow: 0, marginLeft: 23, marginRight: 100 }}>Dark Mode</Text>
-                        <ToggleSwitch
+                        {/* <ToggleSwitch
                             isOn={false}
                             onColor="green"
                             offColor="#ababab"
                             labelStyle={{ color: "black", fontWeight: "900" }}
                             size="small"
                             onToggle={isOn => console.log("changed to : ", isOn)}
-                        />
+                        /> */}
+                        <View style={{
+                            flex: 1,
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}>
+                            <Switch
+                                trackColor={{ false: '#f4f3f4', true: '#ababab' }}
+                                thumbColor={isEnabled ? 'grey' : '#f4f3f4'}
+                                ios_backgroundColor="#3e3e3e"
+                                onValueChange={toggleSwitch}
+                                value={isEnabled}
+                            />
+                        </View>
                     </View>
                 </Link>
                 <View style={{ paddingTop: 30, paddingBottom: 60 }}>
