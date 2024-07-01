@@ -1,50 +1,116 @@
-import { Image, Pressable, ScrollView, Text, View } from 'react-native'
-import { Link } from 'expo-router'
-const menu = require("@/assets/images/menu.png")
-const darkMode = require("@/assets/images/sleep-mode.png")
-const user = require("@/assets/images/user.png")
-const slide = require("@/assets/images/slide.png")
-const forward = require("@/assets/images/right-arrow.png")
+import { View, Text, ScrollView, Image, FlatList } from "react-native";
+import React from "react";
+import card1 from "../assets/images/img1.jpg";
+import card2 from "../assets/images/img2.jpg";
+import card3 from "../assets/images/img3.jpg";
+import card4 from "../assets/images/img4.jpg";
+import card5 from "../assets/images/img5.jpg";
+import card6 from "../assets/images/img6.jpg";
+import { FontAwesome6 } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 
-export default function App() {
-    return (
-        <ScrollView>
-            <View style={{
-                backgroundColor: "#2c79f5",
-                width: "100%",
-                height: 60,
-                flexDirection: "row"
-            }}>
-                <View>
-                    <Pressable>
-                        <Image source={menu} style={{ tintColor: "white", margin: 15 }} />
-                    </Pressable>
-                </View>
-                <View style={{ alignSelf: "center" }}>
-                    <Pressable>
-                        <Image source={darkMode} style={{ tintColor: "white", marginBottom: 5, marginLeft: 190, height: 30, width: 30, marginRight: 20 }} />
-                    </Pressable>
-                </View>
-                <Link href={"Settings"}>
-                    <Image source={user} style={{ tintColor: "white" }} />
-                </Link>
-            </View>
+export default function MyWishlist() {
+  const Wishlist = [
+    {
+      id: 1,
+      img: card1,
+      PlaceName: "Place1",
+      PlaceAdd: "Polynesia,French",
+      PlacePrice: "$235",
+      PlaceRating: "4.5",
+    },
+    {
+      id: 2,
+      img: card2,
+      PlaceName: "Place2",
+      PlaceAdd: "South America",
+      PlacePrice: "$235",
+      PlaceRating: "4.5",
+    },
+    {
+      id: 3,
+      img: card3,
+      PlaceName: "Place3",
+      PlaceAdd: "Hawaii",
+      PlacePrice: "$235",
+      PlaceRating: "4.5",
+    },
+    {
+      id: 4,
+      img: card4,
+      PlaceName: "Place4",
+      PlaceAdd: "Germany",
+      PlacePrice: "$235",
+      PlaceRating: "4.5",
+    },
+    {
+      id: 5,
+      img: card5,
+      PlaceName: "Place5",
+      PlaceAdd: "America",
+      PlacePrice: "$235",
+      PlaceRating: "4.5",
+    },
+    {
+      id: 6,
+      img: card6,
+      PlaceName: "Place6",
+      PlaceAdd: "Russia",
+      PlacePrice: "$235",
+      PlaceRating: "4.5",
+    },
+  ];
+  return (
+    <ScrollView>
+      <Image />
+      <FlatList
+        contentContainerStyle={{
+          flexDirection: "row",
+          flexWrap: "wrap",
+          gap: 20,
+          padding: 20,
+          // backgroundColor:"white"
+        }}
+        data={Wishlist}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item, index }) => {
+          return (
             <View>
-                <Image source={slide} style={{ borderBottomRightRadius: 200, borderBottomLeftRadius: 200 }} />
-            </View>
+              <Image
+                source={item.img}
+                style={{ height: 150, width: 150, borderRadius: 10 }}
+              />
+              <Text style={{ fontSize: 18 }}>{item.PlaceName}</Text>
 
-            <View>
-                <Text style={{ fontWeight: 500, fontSize: 26, marginLeft: 25, marginTop: 20 }}>Best travel destinations in</Text>
-                <Text style={{ fontWeight: 500, fontSize: 26, marginLeft: 125 }}>the world</Text>
+              <View
+                style={{ flexDirection: "row", gap: 8, paddingVertical: 4 }}
+              >
+                <FontAwesome6 name="location-dot" size={14} color="grey" />
+                <Text style={{ color: "grey", fontSize: 12 }}>
+                  {item.PlaceAdd}
+                </Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  gap: 8,
+                  paddingVertical: 10,
+                  justifyContent: "space-between",
+                }}
+              >
+                <Text style={{ fontSize: 16, fontWeight: 600 }}>
+                  {item.PlacePrice}
+                </Text>
 
-                <Text style={{ color: "grey", marginTop: 15, marginLeft: 50 }}>Semper in cursus magna et eu varius nunc  </Text>
-                <Text style={{ color: "grey", marginLeft: 35 }}>adipiscing. Elementum justo, laoreet id semiru </Text>
-                <Text style={{ color: "grey", marginLeft: 145 }}>forigive you.</Text>
+                <View style={{ gap: 5, flexDirection: "row" }}>
+                  <AntDesign name="star" size={16} color="#e3d005" />
+                  <Text style={{ color: "#e3d005" }}>{item.PlaceRating}</Text>
+                </View>
+              </View>
             </View>
-            <View style={{ flexDirection: "row" }}>
-                <Image source={forward} style={{ tintColor: "#2c79f5", height: 70, width: 70, marginBottom: 40, marginTop: 200, marginLeft: 30 }} />
-                <Text style={{ color: "grey", marginTop: 225, marginLeft: 15 }}>Skip</Text>
-            </View>
-        </ScrollView>
-    )
+          );
+        }}
+      />
+    </ScrollView>
+  );
 }
